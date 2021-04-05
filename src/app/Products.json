@@ -1,0 +1,28 @@
+{
+  "products":[
+    {
+      "id":1,
+      "name":"lenovo",
+      "color":"white"
+
+    },
+
+    {
+      "id":2,
+      "name":"Apple",
+      "color":"Brown"
+    },
+
+    {
+      "id":3,
+      "name":"lenovo",
+      "color":"black"
+    },
+
+    {
+      "id":4,
+      "name":"lenovo",
+      "color":"black"
+    }
+  ]
+}

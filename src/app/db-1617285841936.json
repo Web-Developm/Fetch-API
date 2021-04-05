@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "name": "lenovo",
+      "color": "white"
+    },
+    {
+      "name": "Apple",
+      "color": "Brown"
+    },
+    {
+      "name": "lenovo",
+      "color": "black"
+    },
+    {
+      "name": "lenovo",
+      "color": "black"
+    }
+  ]
+}
