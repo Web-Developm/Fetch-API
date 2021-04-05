@@ -1,25 +1,29 @@
-<div class="container-fluid table-responsive">
+<div class="jumbotron table-responsive">
   <table class="table table-sm table-bordered table-hover">
     <thead class="bg-dark text-white">
       <tr style="text-align:center;">
-        <th>User Id</th>
+        <th>Post Id</th>
         <th>Id</th>
-        <th>Title</th>
+        <th>Name</th>
+        <th>Email</th>
         <th>Body</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
     </thead>
 
-    <tbody *ngFor="let post of posts; let i-index">
+    <tbody *ngFor="let post of posts; let i=index">
       <tr>
-        <td>{{post.userId}}</td>
+        <td>{{post.postId}}</td>
         <td>{{post.id}}</td>
-        <td>{{post.title}}</td>
-        <td>{{post.body}}</td>
+        <td>{{post.name}}</td>
+        <td [ngStyle]="{'text-align':'justify'}">{{post.email}}</td>
+        <td style="text-align: justify;">{{post.body}}</td>
         <td><b><button (click)="add(i,id,$event)" type="button" class="btn"><i class="far fa-edit"></i></button></b></td>
         <td><button (click)="delete(i)" type="button" class="btn"><i class="far fa-trash-alt"></i></button></td>
       </tr>
     </tbody>
   </table>
 </div>
+
+

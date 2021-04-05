@@ -18,13 +18,19 @@ export class SubChildComponent implements OnInit {
 
 
   Posts() {
-    this.http.get<any>('https://jsonplaceholder.typicode.com/posts').subscribe(
+    this.http.get<any>('https://jsonplaceholder.typicode.com/comments?postId=1').subscribe(
       response => {
         console.log(response);
         this.posts = response;
       }
     )
   }
+
+  /*Posts=():any =>
+  {
+    fetch("https://jsonplaceholder.typicode.com/comments").then((response) =>response.json()).then((posts)=>console.log(posts));
+
+  }*/
 
   add = (): void => {
     this.posts.push();

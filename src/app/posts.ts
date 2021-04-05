@@ -1,6 +1,7 @@
 export interface Posts{
-  "userId":Number,
+  "postId":Number,
   "id":Number,
-  "title":String,
+  "name":String,
+  "email":String
   "body":string
 }
