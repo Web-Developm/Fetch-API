@@ -39,18 +39,6 @@ export class SubChildComponent implements OnInit {
 
    }
 
-
-
-
-
-
-
-
-
-
-
-
-
   delete = (index: any): any => {
     this.posts.splice(index, 1);
   }
