@@ -1,4 +1,5 @@
-<div class="jumbotron table-responsive">
+<div class="container table-responsive">
+  <h1>https://jsonplaceholder.typicode.com/posts</h1>
   <table class="table table-sm table-bordered table-hover">
     <thead class="bg-dark text-white">
       <tr style="text-align:center;">
@@ -57,6 +58,42 @@
 
 <br>
 <br>
+
+<div class="container table-responsive">
+  <h2>https://jsonplaceholder.typicode.com/posts?userId=1</h2>
+  <table class="table table-bordered table-hover">
+    <thead class="bg-dark text-white">
+      <tr>
+        <th>UserId</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let post1 of posts1">
+      <tr>
+        <td>{{post1.userId}}</td>
+        <td>{{post1.id}}</td>
+        <td [ngstyle]="{'text-align':'justify'}">{{post1.title}}</td>
+        <td [ngStyle]="{'text-align':'justify'}">{{post1.body}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="container table-responsive">
+  <h2>Post Data return https://jsonplaceholder.typicode.com/posts</h2>
+  <p>Id {{objPosts?.id}}</p>
+  <p>User Id {{objPosts?.userId}}</p>
+  <p>Title {{objPosts?.title}}</p>
+  <p>Body {{objPosts?.body}}  </p>
+</div>
+
 
 
 

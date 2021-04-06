@@ -17,6 +17,7 @@ import {Sample} from '../sample';
 export class SubChildComponent implements OnInit {
 
   public posts: Posts[];
+  objPosts:Posts;
 
   public posts1: Posts1[];
 
@@ -59,6 +60,7 @@ export class SubChildComponent implements OnInit {
       data=>
       {
         this.posts=data;
+        console.log(this.posts);
       }
      );
 
@@ -66,8 +68,22 @@ export class SubChildComponent implements OnInit {
       data=>
       {
         this.posts1=data;
+        console.log(this.posts1);
       }
     );
+
+    let value1=new Posts();
+    value1.body='testbody';
+    value1.title='testtitle';
+    value1.userId=5;
+
+    this.api.post(value1).subscribe(
+      data =>
+      {
+        this.objPosts=data;
+      }
+    );
+
   }
 
 
