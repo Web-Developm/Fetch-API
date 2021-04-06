@@ -1,5 +1,5 @@
 <div class="container table-responsive">
-  <h1>https://jsonplaceholder.typicode.com/posts</h1>
+  <h1>get https://jsonplaceholder.typicode.com/posts</h1>
   <table class="table table-sm table-bordered table-hover">
     <thead class="bg-dark text-white">
       <tr style="text-align:center;">
@@ -19,14 +19,16 @@
         <td>{{post.title}}</td>
         <td [ngStyle]="{'text-align':'justify'}">{{post.body}}</td>
         <td><button  (click)="update(post)" type="button" class="btn"><i class="fas fa-edit"></i></button></td>
-        <td><button (click)="delete(i)" type="button" class="btn"><i class="fas fa-trash-alt"></i></button></td>
+        <td><button (click)="delete1(i)" type="button" class="btn"><i class="fas fa-trash-alt"></i></button></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <div class="container">
+
   <form [formGroup]="data">
+    <h2>{{data.value | json}}</h2>
     <div class="mb-3">
       <label for="post" class="form-label">Post Id </label>
       <input type="text" class="form-control" id="post" name="post" formControlName="postId">
@@ -52,7 +54,7 @@
       <textarea class="form-control" rows="10" cols="10" formControlName="body" id="body"></textarea>
     </div>
 
-    <button type="button" class="btn btn-outline-primary">Submit</button>
+    <button (click)="display()" type="button" class="btn btn-outline-primary">Submit</button>
   </form>
 </div>
 
@@ -86,13 +88,52 @@
 <br>
 <br>
 
-<div class="container table-responsive">
+<div class="container">
   <h2>Post Data return https://jsonplaceholder.typicode.com/posts</h2>
   <p>Id {{objPosts?.id}}</p>
   <p>User Id {{objPosts?.userId}}</p>
   <p>Title {{objPosts?.title}}</p>
   <p>Body {{objPosts?.body}}  </p>
 </div>
+
+<br>
+<br>
+
+<div class="container">
+  <h2>Put Data https://jsonplaceholder.typicode.com/posts/1</h2>
+  <p>Id {{objPuts?.id}}</p>
+  <p>User Id {{objPuts?.userId}}</p>
+  <p>Title {{objPuts?.title}}</p>
+  <p>Body {{objPuts?.body}}</p>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <h2>Patch https://jsonplaceholder.typicode.com/posts/1</h2>
+  <p>Id {{objPatch?.id}}</p>
+  <p>User Id {{objPatch?.userId}}</p>
+  <p>Title {{objPatch?.title}}</p>
+  <p>Body {{objPuts?.body}}</p>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <h2>Delete https://jsonplaceholder.typicode.com/posts/1</h2>
+  <p>Message {{message}}</p>
+</div>
+
+<br>
+<br>
+
+
+
+
+
+
 
 
 
