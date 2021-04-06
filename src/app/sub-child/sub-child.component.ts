@@ -16,25 +16,42 @@ import { Sample } from '../sample';
 })
 export class SubChildComponent implements OnInit {
 
-  public posts: Posts[];
+  public posts: Posts[];//data
   public posts1: Posts1[];
   objPosts: Posts;
   objPuts:  Posts;
   objPatch: Posts;
   message:String;
 
-  data!: FormGroup;
 
-  constructor(private http: HttpClient, private api: ApiService) {
-    this.data = new FormGroup({
-      postId: new FormControl(''),
-      id: new FormControl(''),
-      name: new FormControl(''),
-      email: new FormControl(''),
-      body: new FormControl('')
-    })
 
+  constructor(private api: ApiService) {
   }
+
+  data = new FormGroup({
+    userId: new FormControl(''),
+    id: new FormControl(''),
+    title: new FormControl(''),
+    body: new FormControl('')
+  })
+
+  update1=(info:any,index:number):any=>{
+    this.data.setValue({
+      userId:info.userId,
+      id:info.id,
+      title:info.title,
+      body:info.body
+    })
+  }
+
+  update2=():any=>{
+    let temp=this.posts.findIndex(obj => obj.id === this.data.controls['id'].value);
+    this.posts[temp].userId=this.data.controls['userId'].value;
+    this.posts[temp].title=this.data.controls['title'].value;
+    this.posts[temp].body=this.data.controls['body'].value;
+    alert("Successfully Updated");
+  }
+
 
   display() {
     console.log(this.data.value);
@@ -44,6 +61,11 @@ export class SubChildComponent implements OnInit {
   delete1 = (id: any): any => {
     this.posts.splice(id, 1);
   }
+
+
+
+
+
 
   ngOnInit(): void {
 

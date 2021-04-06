@@ -7,6 +7,7 @@
         <th>Id</th>
         <th>Title</th>
         <th>Body</th>
+        <th>Edit</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -17,6 +18,7 @@
         <td>{{post.id}}</td>
         <td>{{post.title}}</td>
         <td [ngStyle]="{'text-align':'justify'}">{{post.body}}</td>
+        <td><button   (click)="update1(post,i)"type="button" class="btn"><i class="fas fa-edit"></i></button></td>
         <td><button (click)="delete1(i)" type="button" class="btn"><i class="fas fa-trash-alt"></i></button></td>
       </tr>
     </tbody>
@@ -29,7 +31,7 @@
     <h2>{{data.value | json}}</h2>
     <div class="mb-3">
       <label for="post" class="form-label">Post Id </label>
-      <input type="text" class="form-control" id="post" name="post" formControlName="postId">
+      <input type="text" class="form-control" id="post" name="post" formControlName="userId">
     </div>
 
     <div class="mb-3">
@@ -38,21 +40,16 @@
     </div>
 
     <div class="mb-3">
-      <label for="id" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" name="name" formControlName="name">
-    </div>
-
-    <div class="mb-3">
-      <label for="email1" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email1" name="email1" formControlName="email">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" formControlName="title">
     </div>
 
     <div class="mb-3">
       <label for="body" class="form-label">Body</label>
-      <textarea class="form-control" rows="10" cols="10" formControlName="body" id="body"></textarea>
+      <input tyep="text" class="form-control" id="body" name="body" formControlName="body">
     </div>
 
-    <button (click)="display()" type="button" class="btn btn-outline-primary">Submit</button>
+    <button (click)="update2()" type="button" class="btn btn-outline-primary">Submit</button>
   </form>
 </div>
 
