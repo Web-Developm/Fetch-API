@@ -17,15 +17,11 @@ import { Sample } from '../sample';
 export class SubChildComponent implements OnInit {
 
   public posts: Posts[];
+  public posts1: Posts1[];
   objPosts: Posts;
   objPuts:  Posts;
   objPatch: Posts;
-
   message:String;
-
-  public posts1: Posts1[]; //https://jsonplaceholder.typicode.com/posts?userId=1//
-
-
 
   data!: FormGroup;
 

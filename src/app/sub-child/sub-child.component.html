@@ -7,7 +7,6 @@
         <th>Id</th>
         <th>Title</th>
         <th>Body</th>
-        <th>Edit</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -18,7 +17,6 @@
         <td>{{post.id}}</td>
         <td>{{post.title}}</td>
         <td [ngStyle]="{'text-align':'justify'}">{{post.body}}</td>
-        <td><button  (click)="update(post)" type="button" class="btn"><i class="fas fa-edit"></i></button></td>
         <td><button (click)="delete1(i)" type="button" class="btn"><i class="fas fa-trash-alt"></i></button></td>
       </tr>
     </tbody>
@@ -62,7 +60,7 @@
 <br>
 
 <div class="container table-responsive">
-  <h2>https://jsonplaceholder.typicode.com/posts?userId=1</h2>
+  <h2>Params https://jsonplaceholder.typicode.com/posts?userId=1</h2>
   <table class="table table-bordered table-hover">
     <thead class="bg-dark text-white">
       <tr>
