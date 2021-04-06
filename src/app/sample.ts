@@ -1,5 +1,5 @@
 export interface Sample{
-  id:any,
-  name:String,
-  color:String
+  "userid":String,
+  "id":Number,
+  "title":String
 }

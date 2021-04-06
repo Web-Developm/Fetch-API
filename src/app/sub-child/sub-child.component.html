@@ -2,10 +2,9 @@
   <table class="table table-sm table-bordered table-hover">
     <thead class="bg-dark text-white">
       <tr style="text-align:center;">
-        <th>Post Id</th>
+        <th>User Id</th>
         <th>Id</th>
-        <th>Name</th>
-        <th>Email</th>
+        <th>Title</th>
         <th>Body</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -14,16 +13,50 @@
 
     <tbody *ngFor="let post of posts; let i=index">
       <tr>
-        <td>{{post.postId}}</td>
+        <td>{{post.userId}}</td>
         <td>{{post.id}}</td>
-        <td>{{post.name}}</td>
-        <td [ngStyle]="{'text-align':'justify'}">{{post.email}}</td>
-        <td style="text-align: justify;">{{post.body}}</td>
-        <td><b><button (click)="add(i,id,$event)" type="button" class="btn"><i class="far fa-edit"></i></button></b></td>
-        <td><button (click)="delete(i)" type="button" class="btn"><i class="far fa-trash-alt"></i></button></td>
+        <td>{{post.title}}</td>
+        <td [ngStyle]="{'text-align':'justify'}">{{post.body}}</td>
+        <td><button  (click)="update(post)" type="button" class="btn"><i class="fas fa-edit"></i></button></td>
+        <td><button (click)="delete(i)" type="button" class="btn"><i class="fas fa-trash-alt"></i></button></td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<div class="container">
+  <form [formGroup]="data">
+    <div class="mb-3">
+      <label for="post" class="form-label">Post Id </label>
+      <input type="text" class="form-control" id="post" name="post" formControlName="postId">
+    </div>
+
+    <div class="mb-3">
+      <label for="id" class="form-label">Id</label>
+      <input type="text" class="form-control" id="'id" name="id" formControlName="id">
+    </div>
+
+    <div class="mb-3">
+      <label for="id" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name" formControlName="name">
+    </div>
+
+    <div class="mb-3">
+      <label for="email1" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email1" name="email1" formControlName="email">
+    </div>
+
+    <div class="mb-3">
+      <label for="body" class="form-label">Body</label>
+      <textarea class="form-control" rows="10" cols="10" formControlName="body" id="body"></textarea>
+    </div>
+
+    <button type="button" class="btn btn-outline-primary">Submit</button>
+  </form>
+</div>
+
+<br>
+<br>
+
 
 

@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse, HttpHeaders, HttpClient } from '@angular/common/http';
+import { FormControl, FormGroup } from '@angular/forms';
+
+import {ApiService} from '../api.service';
+
 import { Posts } from '../posts';
+import {Posts1} from '../posts1';
+import {Sample} from '../sample';
+
 
 @Component({
   selector: 'app-sub-child',
@@ -9,44 +16,58 @@ import { Posts } from '../posts';
 })
 export class SubChildComponent implements OnInit {
 
-  posts: Posts[];
+  public posts: Posts[];
 
-  text:String;
-
-  constructor(private http: HttpClient) { }
+  public posts1: Posts1[];
 
 
 
-  Posts() {
-    this.http.get<any>('https://jsonplaceholder.typicode.com/comments?postId=1').subscribe(
-      response => {
-        console.log(response);
-        this.posts = response;
-      }
-    )
-  }
+  data!:FormGroup;
 
-  /*Posts=():any =>
-  {
-    fetch("https://jsonplaceholder.typicode.com/comments").then((response) =>response.json()).then((posts)=>console.log(posts));
+  url="https://jsonplaceholder.typicode.com/posts";
 
-  }*/
 
-  add = (): void => {
-    this.posts.push();
-  }
+  constructor(private http: HttpClient, private api:ApiService) {
+    this.data = new FormGroup({
+      postId: new FormControl(''),
+      id: new FormControl(''),
+      name: new FormControl(''),
+      email: new FormControl(''),
+      body: new FormControl('')
+    })
 
-  update=(id:number,property:string,event:any):void =>{
-    const text=event.target.textContent;
-    this.posts[id][property]=text;
-  }
+   }
 
-  delete = (index:any): any => {
+
+
+
+
+
+
+
+
+
+
+
+
+  delete = (index: any): any => {
     this.posts.splice(index, 1);
   }
 
   ngOnInit(): void {
-    this.Posts();
+    this.api.getposts().subscribe(
+      data=>
+      {
+        this.posts=data;
+      }
+     );
+
+    this.api.getpostsbyparameter().subscribe(
+      data=>
+      {
+        this.posts1=data;
+      }
+    );
   }
 
 
