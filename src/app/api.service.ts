@@ -18,6 +18,10 @@ export class ApiService {
     return this.http.get("https://jsonplaceholder.typicode.com/posts");
   }
 
+  user():Observable<any>{
+    return this.http.get("https://jsonplaceholder.typicode.com/users");
+  }
+
   getpostsbyparameter(): Observable<any> {
     let params1 = new HttpParams().set('userId', "1");
     return this.http.get("https://jsonplaceholder.typicode.com/posts", { params: params1 })

@@ -13,13 +13,15 @@ import { SubComponent } from './sub/sub.component';
 import { SubChildComponent } from './sub-child/sub-child.component';
 
 import {ApiService} from './api.service';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SubComponent,
-    SubChildComponent
+    SubChildComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
