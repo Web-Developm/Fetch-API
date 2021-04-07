@@ -1,5 +1,6 @@
 export interface Sample{
   "userid":String,
   "id":Number,
-  "title":String
+  "title":String,
+  "body":String
 }
