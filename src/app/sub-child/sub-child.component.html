@@ -27,26 +27,29 @@
 
 <div class="container">
 
+
   <form [formGroup]="data">
     <h2>{{data.value | json}}</h2>
-    <div class="mb-3">
-      <label for="post" class="form-label">Post Id </label>
-      <input type="text" class="form-control" id="post" name="post" formControlName="userId">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="post" name="post" placeholder="User" formControlName="userId">
+      <label for="post">User Id </label>
     </div>
 
-    <div class="mb-3">
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="'id" name="id" placeholder="id" formControlName="id">
       <label for="id" class="form-label">Id</label>
-      <input type="text" class="form-control" id="'id" name="id" formControlName="id">
+
     </div>
 
-    <div class="mb-3">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="title" name="title" placeholder="title" formControlName="title">
       <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" id="title" name="title" formControlName="title">
     </div>
 
-    <div class="mb-3">
+    <div class="form-floating mb-3">
+      <input tyep="text" class="form-control" id="body" name="body" placeholder="body" formControlName="body">
       <label for="body" class="form-label">Body</label>
-      <input tyep="text" class="form-control" id="body" name="body" formControlName="body">
     </div>
 
     <button (click)="add()" type="button" class="btn btn-outline-primary">Add</button>
