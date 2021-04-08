@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //import { HttpClient, HttpHeaders,HttpResponse} from '@angular/common/http';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup,Validators } from '@angular/forms';
 
 import { HttpResponse, HttpHeaders, HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
@@ -31,12 +31,20 @@ export class SubComponent implements OnInit {
   }
 
   form = new FormGroup({
-    userId: new FormControl(''),
-    id: new FormControl(''),
-    title: new FormControl(''),
-    body: new FormControl('')
+    userId: new FormControl('',[Validators.required]),
+    id: new FormControl('',[Validators.required]),
+    title: new FormControl('',[Validators.required]),
+    body: new FormControl('',[Validators.required])
   });
 
+  refresh=():any =>{
+    this.form.setValue({
+      userId:null,
+      id:null,
+      title:null,
+      body:null
+    });
+  }
 
   add = (): any => {
     let temp = new Sample();
@@ -57,6 +65,9 @@ export class SubComponent implements OnInit {
         )
       }
     )
+
+    this.refresh();
+
   }
 
   /*edit=(info:any,index:number):any=>{
