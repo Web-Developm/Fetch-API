@@ -71,9 +71,9 @@ export class ApiService {
     return this.http.post("http://localhost:5555/products",temp);
   }
 
-  edit(temp:Sample)
+  edit(info:Sample,id:number)
   {
-    return this.http.put("http://localhost:5555/products",temp);
+    return this.http.put(`${this.userurl}/${id}`,info);
   }
 
 }

@@ -1,17 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-//import { HttpClient, HttpHeaders,HttpResponse} from '@angular/common/http';
-import { FormControl, FormGroup,Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { HttpResponse, HttpHeaders, HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
 
 import { Sample } from '../sample';
-
-
-export class Products {
-  constructor() {
-  }
-}
+import { Posts } from '../posts';
 
 
 @Component({
@@ -31,13 +25,13 @@ export class SubComponent implements OnInit {
   }
 
   form = new FormGroup({
-    userId: new FormControl('',[Validators.required]),
-    id: new FormControl('',[Validators.required]),
-    title: new FormControl('',[Validators.required]),
-    body: new FormControl('',[Validators.required])
+    userId: new FormControl('', [Validators.required]),
+    id: new FormControl('', [Validators.required]),
+    title: new FormControl('', [Validators.required]),
+    body: new FormControl('', [Validators.required])
   });
 
-  refresh=():any =>{
+  refresh = (): any => {
     this.form.setValue({
       userId:null,
       id:null,
@@ -66,61 +60,54 @@ export class SubComponent implements OnInit {
       }
     )
 
-    this.refresh();
+    window.location.reload();
 
   }
 
-  /*edit=(info:any,index:number):any=>{
+  edit1 = (info: any, index: number): any => {
     this.form.setValue({
-      userId:info.userId,
-      id:info.id,
-      title:info.title,
-      body:info.body
+      userId: info.userId,
+      id: info.id,
+      title: info.title,
+      body: info.body
     })
-  }*/
+  }
 
-  edit = (): any => {
-    let temp = new Sample();
-    temp.userId = 1;
-    temp.id = 12;
-    temp.title = "lenovo";
-    temp.body = "Ideapad";
+  edit2 = (): any => {
+    let info=new Posts();
 
-    this.api.edit(temp).subscribe(
-      data => {
+    info.userId=this.form.controls['userId'].value;
+    info.id=this.form.controls['id'].value;
+    info.title=this.form.controls['title'].value;
+    info.body=this.form.controls['body'].value;
+
+    let id:number;
+
+    this.api.edit(info,id).subscribe(
+      data=>{
         console.log(data);
-
-        this.api.products().subscribe(
-          data => {
-            this.products = data;
-            console.log(data);
-          }
-        )
-
       }
     )
 
-
-
+    this.api.products().subscribe(
+      data=>{
+        this.products=data;
+        console.log(data);
+      }
+    )
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
   delete = (id: any): void => {
     this.api.productsdelete(id).subscribe(
       data => {
         console.log(data);
+      }
+    )
 
+    this.api.products().subscribe(
+      data=>{
+        this.products=data;
+        console.log(data);
       }
     )
   }
@@ -140,6 +127,7 @@ export class SubComponent implements OnInit {
         console.log(data);
       }
     )
+
 
 
 

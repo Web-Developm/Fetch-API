@@ -18,8 +18,8 @@
         <td>{{product.id}}</td>
         <td>{{product.title}}</td>
         <td>{{product.body}}</td>
-        <td><button (click)="edit()" class="btn"><i class="fas fa-edit"></i></button></td>
-        <td><button (click)="delete(i)" class="btn"><i class="fas fa-trash-alt"></i></button></td>
+        <td><button (click)="edit1(product,i)" class="btn"><abbr title="edit"><i class="fas fa-edit"></i></abbr></button></td>
+        <td><button (click)="delete(i)" class="btn"><abbr title="delete"><i class="fas fa-trash-alt"></i></abbr></button></td>
       </tr>
     </tbody>
   </table>
@@ -38,7 +38,7 @@
       <label for="user">User Id</label>
 
       <div class="alert" *ngIf="form.controls['userId'].hasError('required') && form.controls['userId'].touched">
-        User Id required
+        <i class="fas fa-exclamation-triangle"></i> User Id required
       </div>
 
     </div>
@@ -48,7 +48,7 @@
       <label for="id">Id</label>
 
       <div class="alert" *ngIf="form.controls['id'].hasError('required') && form.controls['id'].touched">
-        Id required
+        <i class="fas fa-exclamation-triangle"></i>  Id required
       </div>
 
     </div>
@@ -58,7 +58,8 @@
       <label for="title">Title</label>
 
       <div class="alert" *ngIf="form.controls['title'].hasError('required') && form.controls['title'].touched">
-        Title required
+        <i class="fas fa-exclamation-triangle"></i> Title required
+
       </div>
 
     </div>
@@ -68,11 +69,13 @@
       <label for="body">Body</label>
 
       <div class="alert" *ngIf="form.controls['body'].hasError('required') && form.controls['body'].touched">
-        Body required
+        <i class="fas fa-exclamation-triangle"></i> Body required
       </div>
     </div>
+
     <div class="d-grid gap-2">
       <button (click)="add()" [disabled]="form.invalid" type="button" class="btn btn-outline-success">Post</button>
+      <button (click)="edit2()" type="button" class="btn btn-outline-success">Edit</button>
     </div>
   </form>
 </div>
