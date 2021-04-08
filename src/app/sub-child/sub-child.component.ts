@@ -151,7 +151,6 @@ export class SubChildComponent implements OnInit {
       }
     )
 
-
   }
 
 

@@ -122,11 +122,6 @@ export class SubComponent implements OnInit {
 
     this.get();
 
-
-
-
-
-
   }
 
 }
