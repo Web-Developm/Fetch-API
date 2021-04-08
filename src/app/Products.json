@@ -105,14 +105,8 @@
     {
       "userId": 1,
       "id": 18,
-      "title": "Welcome",
-      "body": "tech"
-    },
-    {
-      "userId": 1,
-      "id": 19,
-      "title": "Test",
-      "body": "Sample"
+      "title": "Welcome ",
+      "body": "JSON Server"
     },
     {
       "userId": 1,

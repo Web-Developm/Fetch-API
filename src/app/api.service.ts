@@ -73,6 +73,7 @@ export class ApiService {
 
   edit(info:Sample,id:number)
   {
+    console.log(id);
     return this.http.put(`${this.userurl}/${id}`,info);
   }
 

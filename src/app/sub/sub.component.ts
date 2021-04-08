@@ -33,10 +33,10 @@ export class SubComponent implements OnInit {
 
   refresh = (): any => {
     this.form.setValue({
-      userId:null,
-      id:null,
-      title:null,
-      body:null
+      userId: null,
+      id: null,
+      title: null,
+      body: null
     });
   }
 
@@ -60,8 +60,7 @@ export class SubComponent implements OnInit {
       }
     )
 
-    window.location.reload();
-
+    this.form.reset();
   }
 
   edit1 = (info: any, index: number): any => {
@@ -74,39 +73,43 @@ export class SubComponent implements OnInit {
   }
 
   edit2 = (): any => {
-    let info=new Posts();
+    let info = new Posts();
 
-    info.userId=this.form.controls['userId'].value;
-    info.id=this.form.controls['id'].value;
-    info.title=this.form.controls['title'].value;
-    info.body=this.form.controls['body'].value;
+    info.userId = this.form.controls['userId'].value;
+    info.id = this.form.controls['id'].value;
+    info.title = this.form.controls['title'].value;
+    info.body = this.form.controls['body'].value;
 
-    let id:number;
+    let id = Number(info.id);
 
-    this.api.edit(info,id).subscribe(
-      data=>{
+    this.api.edit(info, id).subscribe(
+      data => {
         console.log(data);
+        this.get();
+        this.form.reset();
       }
     )
 
-    this.api.products().subscribe(
-      data=>{
-        this.products=data;
-        console.log(data);
-      }
-    )
+
   }
 
   delete = (id: any): void => {
     this.api.productsdelete(id).subscribe(
       data => {
         console.log(data);
+        this.get();
       }
     )
 
+
+  }
+
+
+
+  get() {
     this.api.products().subscribe(
-      data=>{
-        this.products=data;
+      data => {
+        this.products = data;
         console.log(data);
       }
     )
@@ -115,18 +118,9 @@ export class SubComponent implements OnInit {
 
 
 
-
-
-
-
   ngOnInit(): void {
 
-    this.api.products().subscribe(
-      data => {
-        this.products = data;
-        console.log(data);
-      }
-    )
+    this.get();
 
 
 
