@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 //import { HttpClient, HttpHeaders,HttpResponse} from '@angular/common/http';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { HttpResponse, HttpHeaders, HttpClient } from '@angular/common/http';
 import {ApiService} from '../api.service';
@@ -7,7 +8,7 @@ import {ApiService} from '../api.service';
 import { Sample } from '../sample';
 
 export class Products {
-  constructor(id: any, name: String, color: String) {
+  constructor() {
   }
 }
 
@@ -19,9 +20,41 @@ export class Products {
 })
 export class SubComponent implements OnInit {
 
-  products: Sample[];
+  public products: Sample[];
+
+  objPosts: Sample;
 
   constructor(private httpClient: HttpClient, private api:ApiService) {
+  }
+
+  form=new FormGroup({
+    userId:new FormControl(''),
+    id:new FormControl(''),
+    title:new FormControl(''),
+    body:new FormControl('')
+  });
+
+
+  add=():any =>{
+    let temp=new Sample();
+    temp.userId=this.form.controls['userId'].value;
+    temp.id=this.form.controls['id'].value;
+    temp.title=this.form.controls['title'].value;
+    temp.body=this.form.controls['body'].value;
+
+    this.api.productsadd(temp).subscribe(
+      data=>{
+        console.log(data);
+
+        this.api.products().subscribe(
+          data=>{
+            this.products=data;
+            console.log(data);
+          }
+        )
+
+      }
+    )
   }
 
 
@@ -60,6 +93,11 @@ export class SubComponent implements OnInit {
         console.log(data);
       }
     )
+
+
+
+
+
 }
 
 }

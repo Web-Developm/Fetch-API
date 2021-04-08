@@ -1,6 +1,6 @@
-export interface Sample{
-  "userid":String,
-  "id":Number,
-  "title":String,
-  "body":String
+export class Sample{
+  userId:String;
+  id:Number;
+  title:String;
+  body:String
 }
