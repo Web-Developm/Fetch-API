@@ -21,14 +21,26 @@ export class SubComponent implements OnInit {
 
   products: Sample[];
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private api:ApiService) {
   }
 
-  getProducts() {
-    this.httpClient.get<any>('http://localhost:5555/products').subscribe(
-      data => {
+
+
+
+
+
+
+
+
+
+
+
+
+  delete=(id:any):void =>{
+    this.api.productsdelete(id).subscribe (
+      data=>{
         console.log(data);
-        this.products = data;
+
       }
     )
   }
@@ -38,8 +50,16 @@ export class SubComponent implements OnInit {
 
 
 
+
+
   ngOnInit(): void {
-    this.getProducts();
-  }
+
+    this.api.products().subscribe(
+      data=>{
+        this.products=data;
+        console.log(data);
+      }
+    )
+}
 
 }

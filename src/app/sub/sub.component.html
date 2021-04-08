@@ -7,15 +7,17 @@
         <th>Id</th>
         <th>Title</th>
         <th>Body</th>
+        <th>Delete</th>
       </tr>
     </thead>
 
-    <tbody *ngFor="let product of products">
+    <tbody *ngFor="let product of products; let i=index">
       <tr>
         <td>{{product.userId}}</td>
         <td>{{product.id}}</td>
         <td>{{product.title}}</td>
         <td>{{product.body}}</td>
+        <td><button (click)="delete(i)" class="btn btn-dark">Delete</button></td>
       </tr>
     </tbody>
   </table>

@@ -14,12 +14,22 @@ export class ApiService {
 
   url="https://jsonplaceholder.typicode.com/posts";
 
+  userurl="http://localhost:5555/products/";
+
   getposts(): Observable<any> {
     return this.http.get("https://jsonplaceholder.typicode.com/posts");
   }
 
   user():Observable<any>{
     return this.http.get("https://jsonplaceholder.typicode.com/users");
+  }
+
+  products():Observable<any>{
+    return this.http.get("http://localhost:5555/products");
+  }
+
+  productsdelete(id:number):Observable<any>{
+    return this.http.delete(`${this.userurl}/${id}`);
   }
 
   getpostsbyparameter(): Observable<any> {
