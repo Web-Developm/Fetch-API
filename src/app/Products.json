@@ -69,14 +69,20 @@
     {
       "userId": 1,
       "id": 11,
-      "title": "Welcome JSON",
-      "body": "hello this is JSON"
+      "title": "Hello",
+      "body": "welcome"
     },
     {
       "userId": 1,
       "id": 12,
-      "title": "welcome",
-      "body": "hello"
+      "title": "Logi",
+      "body": "Tech"
+    },
+    {
+      "userId": 1,
+      "id": 13,
+      "title": "Note",
+      "body": "Book"
     }
   ]
 }

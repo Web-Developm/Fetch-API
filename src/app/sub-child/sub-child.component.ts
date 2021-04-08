@@ -94,6 +94,7 @@ export class SubChildComponent implements OnInit {
       }
     );
 
+    //put
     value1 = new Posts();
     value1.body = "Updating the body";
     value1.title = "Updating the title";
@@ -105,6 +106,7 @@ export class SubChildComponent implements OnInit {
       }
     );
 
+    //patch
     value1 = new Posts();
     value1.title = "patched the title";
 

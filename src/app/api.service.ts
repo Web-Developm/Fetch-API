@@ -56,6 +56,8 @@ export class ApiService {
     return this.http.delete(`${this.url}/${id}`);
   }
 
+  //Sample
+
   products():Observable<any>{
     return this.http.get("http://localhost:5555/products");
   }
@@ -67,6 +69,11 @@ export class ApiService {
   productsadd(temp:Sample)
   {
     return this.http.post("http://localhost:5555/products",temp);
+  }
+
+  edit(temp:Sample)
+  {
+    return this.http.put("http://localhost:5555/products",temp);
   }
 
 }
