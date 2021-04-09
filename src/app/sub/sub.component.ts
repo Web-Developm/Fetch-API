@@ -31,14 +31,6 @@ export class SubComponent implements OnInit {
     body: new FormControl('', [Validators.required])
   });
 
-  refresh = (): any => {
-    this.form.setValue({
-      userId: null,
-      id: null,
-      title: null,
-      body: null
-    });
-  }
 
   add = (): any => {
     let temp = new Sample();
